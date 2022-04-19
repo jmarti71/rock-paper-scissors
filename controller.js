@@ -10,12 +10,15 @@ function game (){
         console.log(winFactor += (recaseInputandPlay(userInput)));
         if(i == 4) {
             if(winFactor == 0) {
+                alert("Tied with computer");
                 console.log("Tied with computer");
             }
             else if(winFactor > 0) {
+                alert("You win!")
                 console.log("Player wins!");       
             }
             else if (winFactor < 0) {
+                alert("Computer wins!");
                 console.log("Computer wins!")
             }
         }
@@ -43,6 +46,7 @@ function computerPlay () {
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == computerSelection) {
+
         console.log("Tied!")
         return 0;
     }
