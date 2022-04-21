@@ -1,0 +1,157 @@
+body {
+    background-color: aliceblue;
+    text-align: center;
+    margin: 0;
+    font-family: Roboto, Arial;
+}
+
+button {
+    font-size: 24px;
+    border-radius: 0;
+    border-color: black;
+}
+
+p {
+    margin: 0;
+}
+
+.headings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(97, 96, 96);
+    font-size: 80px;
+    font-weight: bold;
+    gap: 20px;
+}
+
+.rock-heading {
+    color: white;
+}
+
+.paper-heading {
+    color: rgb(187, 187, 187);
+}
+
+.scissors-heading {
+    color: white;
+}
+
+.startdiv {
+    height: 200px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.start.show {
+    font-size: 38px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(152, 152, 152);
+}
+
+.start.hide {
+    display: none;
+}
+
+.score-tracker.hide {
+    display: none;
+}
+
+.score-tracker.show {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.selections {
+    width: 300px;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.c-score-div {
+    display: flex;
+    flex-direction: column;
+}
+.c-score {
+    font-size: 120px;
+    font-weight: normal;
+}
+
+.c-select-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-score-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-score {
+    font-size: 120px;
+    font-weight: normal;
+}
+
+.match-winner-div {
+    text-align: center;
+    font-size: xx-large;
+    background-color: rgb(99, 180, 180);
+}
+
+.play.show{
+    height: 300px;
+    background-color: rgb(97, 96, 96);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.play.hide {
+    display: none;
+}
+
+.rock {
+    font-size: 38px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    width: 230px;
+    background-color: rgb(69, 218, 235);
+}
+
+.paper {
+    font-size: 38px;
+    color: white;
+    width: 230px;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(69, 218, 235);
+}
+
+.scissors {
+    font-size: 38px;
+    color: white;
+    width: 230px;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(69, 218, 235);
+}
+
+.end-game {
+    background-color: aliceblue;
+}
+
+.end.hide {
+    display: none;
+}
+
+.end.show {
+    background-color: gray;
+    color: white;
+    font-size: 30px;
+    padding: 10px 30px 10px 30px;
+    justify-content: center;
+}

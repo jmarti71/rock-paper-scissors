@@ -2,10 +2,43 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link href="controller.js" rel="controller">
+        <title>Rock | Paper | Scissors</title>
+        <script src="controller.js" defer></script>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <script src="controller.js"></script>
-        <h1>Refresh Page to play again.</h1>
+        <div class="headings">
+            <p class="rock-heading">ROCK</p>
+            <p class="paper-heading">PAPER</p>
+            <p class="scissors-heading">SCISSORS</p>
+        </div>
+        <div class="startdiv">               
+                <button class="start show">Start</button>
+                <div class="score-tracker hide">
+                    <div class="c-score-div">
+                        <p>Computer</p>
+                        <p class="c-score">0</p>
+                    </div>
+                    <div class="c-select-div">
+                        <p class="selections">vs</p>
+                    </div>
+                    <div class="p-score-div">
+                        <p>Player</p>
+                        <p class="p-score">0</p>
+                    </div>                 
+                </div>                
+        </div>
+        <div class="match-winner-div">
+            <p class="match-winner"> </p>
+        </div>
+        <div class="play hide">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
+        <div class="end-game">
+            <br>
+            <button class="end hide">END GAME</button>
+        </div>
     </body>
 </html>

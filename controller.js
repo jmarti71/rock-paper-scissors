@@ -1,37 +1,30 @@
-let values = ["rock", "paper", "scissors"];
+const values = ["rock", "paper", "scissors"];
+const startBtn = document.querySelector(".start.show");
+const choiceButtons = document.querySelector(".play.hide");
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
+const scoreTracker = document.querySelector(".score-tracker.hide");
+const endBtn = document.querySelector(".end.hide");
+const playerScoreDisplay = document.querySelector(".p-score");
+const compScoreDisplay = document.querySelector(".c-score");
+const computerChoiceDisplay = document.querySelector(".selections")
+const winnerText = document.querySelector(".match-winner")
+let playerScore = 0;
+let computerScore = 0;
 
-if(window.confirm("Do you want to play a game?")) { game()};
-
-function game (){
-    let winFactor = 0;
-    for (let i = 0; i < 5; i++) {
-        let userInput = prompt("Do you choose 'rock', 'paper', or 'scissors'?");
-        console.log(`Round ${i + 1}:`);
-        console.log(winFactor += (recaseInputandPlay(userInput)));
-        if(i == 4) {
-            if(winFactor == 0) {
-                alert("Tied with computer");
-                console.log("Tied with computer");
-            }
-            else if(winFactor > 0) {
-                alert("You win!")
-                console.log("Player wins!");       
-            }
-            else if (winFactor < 0) {
-                alert("Computer wins!");
-                console.log("Computer wins!")
-            }
-        }
-    } 
+function startGame () {   
+    startBtn.className = "start hide";
+    scoreTracker.className = "score-tracker show";
+    endBtn.className = "end show";
+    choiceButtons.className = "play show";
 }
 
-function recaseInputandPlay(userInput) {
-    let recasedInput = userInput.toLowerCase();
-
-    if (recasedInput == "rock" || recasedInput == "paper" || recasedInput == "scissors") {
+function Play(playerSelection) {
+    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
         let computerSelection = computerPlay();
-        let playerSelection = recasedInput;
-        alert(`Computer has chosen: ${computerSelection}`);
+        computerChoiceDisplay.textContent = `${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} 
+            vs ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
         return playRound(playerSelection, computerSelection);
     }
     else {
@@ -40,38 +33,69 @@ function recaseInputandPlay(userInput) {
 }
 
 function computerPlay () {
-    let choice = values [Math.floor(Math.random() * values.length)]
-    return choice;
+    let compDecision = values [Math.floor(Math.random() * values.length)]
+    return compDecision;
 }
 
-function playRound(playerSelection, computerSelection) {
-    if(playerSelection == computerSelection) {
+function playRound(playerSelection, computerSelection) {  
+        if(playerSelection == computerSelection) {
+            winnerText.textContent = "Tied";
+        }
+        else if(playerSelection == "rock" && computerSelection == "paper") {
+            compScoreDisplay.textContent = (computerScore += 1).toString();
+            winnerText.textContent = "Computer wins!";
+        }
+        else if (playerSelection == "rock" && computerSelection == "scissors") { 
+            playerScoreDisplay.textContent = (playerScore += 1).toString();
+            winnerText.textContent = "You win!";
+        }
+        else if (playerSelection == "paper" && computerSelection == "scissors") {
+            compScoreDisplay.textContent = (computerScore += 1).toString();
+            winnerText.textContent = "Computer wins!";
+        }
+        else if (playerSelection == "paper" && computerSelection == "rock") {
+            playerScoreDisplay.textContent = (playerScore += 1).toString();
+            winnerText.textContent = "You win!";
+        }
+        else if (playerSelection == "scissors" && computerSelection == "rock") {
+            compScoreDisplay.textContent = (computerScore += 1).toString();
+            winnerText.textContent = "Computer wins!";
+        }
+        else if(playerSelection == "scissors" && computerSelection == "paper"){
+            playerScoreDisplay.textContent = (playerScore += 1).toString();
+            winnerText.textContent = "You win!";
+        }
+        checkForWinner();
+}
 
-        console.log("Tied!")
-        return 0;
+function checkForWinner() {
+    if(playerScore == 5) {
+        winnerText.textContent = "";
+        choiceButtons.className = "play hide";
+        computerChoiceDisplay.textContent = "Player Wins!";
     }
-    else if(playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You lose! Paper beats rock")
-        return (-1);
-    }
-    else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log("You win! Rock beats scissors");
-        return 1;
-    }
-    else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You lose! Scissors beats paper");
-        return (-1);
-    }
-    else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You win! Paper beats rock");
-        return 1;
-    }
-    else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log("You lose! Rock beats scissors");
-        return (-1);
-    }
-    else if(playerSelection == "scissors" && computerSelection == "paper"){
-        console.log("You win! Scissors beats paper");
-        return 1;
+    else if(computerScore == 5) {
+        winnerText.textContent = "";
+        choiceButtons.className = "play hide";
+        computerChoiceDisplay.textContent = "Computer Wins!";
     }
 }
+
+function endGame () {
+    playerScore = 0;
+    computerScore = 0;
+    startBtn.className = "start show";
+    scoreTracker.className = "score-tracker hide";
+    endBtn.className = "end hide";
+    compScoreDisplay.textContent = (computerScore).toString();
+    playerScoreDisplay.textContent = (playerScore).toString();
+    winnerText.textContent = "";
+    computerChoiceDisplay.textContent = "vs";
+    choiceButtons.className = "play hide";
+}
+
+startBtn.addEventListener('click', () => { startGame() });
+rockBtn.addEventListener('click', () => { Play("rock") });
+paperBtn.addEventListener('click', () => { Play("paper") });
+scissorsBtn.addEventListener('click', () => { Play("scissors") });
+endBtn.addEventListener('click', () => { endGame() });
