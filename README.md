@@ -14,10 +14,10 @@ What happens when the user selects their play?
 
 The script run this nested sequence of 4 functions:
 
--(1) Play(playerSelection)
-    -(2) computerPlay()
-    -(3) playRound(playerSelection, computerSelection)
-        -(4) checkForWinner()
+>(1) Play(playerSelection)
+    >(2) computerPlay()
+    >(3) playRound(playerSelection, computerSelection)
+        >(4) checkForWinner()
 
 ------------------
 Sequence Explained
