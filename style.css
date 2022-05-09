@@ -37,6 +37,11 @@ p {
 .scissors-heading {
     color: white;
 }
+.subheading {
+    background-color: rgb(96, 130, 156);
+    padding: 5px;
+    color: white;
+}
 
 .startdiv {
     height: 200px;
@@ -105,15 +110,24 @@ p {
 }
 
 .play.show{
-    height: 300px;
+    padding: 0px 50px 50px 50px;
     background-color: rgb(97, 96, 96);
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
 }
 
 .play.hide {
     display: none;
+}
+.playing-heading {
+    color: white;
+}
+
+.playing-buttons {
+    display: flex;
+    justify-content:space-evenly;
+    gap: 20px;
 }
 
 .rock {
