@@ -12,9 +12,9 @@ Once a score of 5 is reached, the player selection buttons disppear and are repl
 ### Design
 What happens when the user selects their play?
 
-The script run this nested sequence of 4 functions:
+The script runs this nested sequence of 4 functions:
 
->(1) Play(playerSelection)
+>>(1) Play(playerSelection)
     >(2) computerPlay()
     >(3) playRound(playerSelection, computerSelection)
         >(4) checkForWinner()
