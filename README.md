@@ -2,6 +2,8 @@
 ## Summary
 You may have guessed it, this is a rock paper scissors game! This game is a webpage put together with HTML, CSS and JavaScript where the user plays rounds of rock, paper, scissors against "The Computer" until a score of 5 is reached.
 
+Check it out: https://jmarti71.github.io/rock-paper-scissors/
+
 ### How it works
 This page consists of various HTML and styling elements that are accessed by the controller.js file. The elements that are referenced include divs, paragraphs and buttons, and may be modified depending on user input. The first occurance of user input will happen when the start button is pressed, this will run a startGame() function that will hide the start button and display a score board and more options that the player can select when competing against "the computer". This was accomplished this by assigning new class names to certain elements in the startGame () function. These elements are given different display properties from our style.css file based on class name. 
 
